@@ -161,7 +161,7 @@ const SignInFormStyled = styled.div`
 		width: 100%;
 		height: 100%;
 		box-shadow: 0px 0px 0px 0px;
-		color: rgba(87, 184, 70, 0.8);
+		color: #DA0037;
 	}
 
 	& .input100:focus + .focus-input100 {
@@ -207,7 +207,7 @@ const SignInFormStyled = styled.div`
 	}
 
 	& .input100:focus + .focus-input100 + .symbol-input100 {
-  color: #57b846;
+  color: #DA0037;
   padding-left: 28px;
 }
 
