@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+
+    height: 90vh;
+    top: 30%;
+
+    .Main-text{
+        padding: 10px 10px;
+        width: 70%;
+        
+        display: flex;
+        color: antiquewhite;
+        text-align: justify;
+        justify-content:center;
+        p{
+            position: absolute;
+            top: 20%;
+            padding: 10px 10px;
+            font-size: 350%;
+            font-weight: 600;
+        }
+    }
+    .Image{
+        width: 50%;
+    }
+}
