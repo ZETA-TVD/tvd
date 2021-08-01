@@ -1,0 +1,21 @@
+.groups{
+    background-color: #DA0037;
+    border-radius: 2em;
+    display: flex;
+    flex-wrap:  wrap;
+    margin: 5em;
+    padding: 1em;
+}
+
+.heading{
+    justify-content: center;
+}
+
+.groupcards{
+    display: inline-flex;
+}
+
+.car{
+    display: flex;
+    flex-wrap:  wrap;
+}
