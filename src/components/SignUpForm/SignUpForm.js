@@ -87,13 +87,13 @@ const SignInFormStyled = styled.div`
 		justify-content: center;
 		align-items: center;
 		box-sizing: border-box;
-		background: white;
+		background-color: #082032;
 	}
 
 	& .wrap-login100 {
 		width: 95%;
 		border: 2px solid black;
-		background: white;
+		background: #334756;
 		border-radius: 10px;
 		overflow: hidden;
 		display: flex;
@@ -101,7 +101,7 @@ const SignInFormStyled = styled.div`
 		justify-content: center;
 		align-items: center;
 		padding: 2em 2em 2em 2em;
-		box-shadow: 10px 10px 5px grey;
+		box-shadow: 10px 10px 5px black;
 	}
 
 	& .p-t-12 {
@@ -168,6 +168,7 @@ const SignInFormStyled = styled.div`
 		animation: anim-shadow 0.5s ease-in-out forwards;
 	}
 
+
 	& .symbol-input100 {
   font-size: 15px;
   display: -webkit-box;
@@ -226,7 +227,7 @@ const SignInFormStyled = styled.div`
 		width: 100%;
 		height: 42px;
 		border-radius: 25px;
-		background: #CE0000;
+		background: #DA0037;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -247,7 +248,7 @@ const SignInFormStyled = styled.div`
 	}
  
  & .orline span{
-	 background:#fff; 
+	 background:#334756; 
 	 padding:0 10px;
  }
 	& .google-btn {

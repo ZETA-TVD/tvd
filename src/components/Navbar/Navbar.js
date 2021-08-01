@@ -6,7 +6,7 @@ export const Navbar = () => {
 	const Nav = styled.div`
 		& {
 			height: 10vh;
-			background: #CE0000;
+			background: #DA0037;
 			filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 			display:flex;
 			align-items:center;
