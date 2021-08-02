@@ -10,14 +10,13 @@ import background from "./assets/pattern.svg";
 ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<div style={{ backgroundImage: `url(${background})` }}>
-				<App />
-			</div>
+		<div style={{ backgroundImage: `url(${background})` }}>
+			<App />
+		</div>
 		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById("root")
 );
-
 
 
 reportWebVitals();
