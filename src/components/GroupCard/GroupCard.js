@@ -12,4 +12,4 @@ export const GroupCard =({name}) =>{
             </article>
         </div>
         );
-}
+}  
