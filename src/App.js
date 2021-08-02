@@ -7,6 +7,7 @@ import { Landingpage } from "./pages/Landingpage/Landingpage";
 import { Registerpage } from "./pages/Registerpage/Registerpage";
 import { Signinpage } from "./pages/Signinpage/Signinpage";
 import { Splitpage } from "./pages/Splitpage/Splitpage.js";
+import { Footer } from "./components/Footer/footer.component";
 
 const App = () => {
 	return (
@@ -18,6 +19,7 @@ const App = () => {
 				 <Route path="/register" component={Registerpage} />
 				 <Route path="/" component={Landingpage} />
 			</Switch>
+		<Footer/>
 	</div>
 	);
    };
