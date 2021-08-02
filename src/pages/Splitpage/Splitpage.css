@@ -1,10 +1,11 @@
 .container1{
-    height: 90vh;
+    height: 100%;
 }
+
 .groups{
     background-color: #DA0037;
     border-radius: 2em;
-    display: flex;
+    /* display: flex; */
     flex-wrap:  wrap;
     margin: 5em;
     padding: 1em;
