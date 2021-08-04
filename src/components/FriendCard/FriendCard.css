@@ -1,0 +1,28 @@
+.groups1{
+    background-color: #4D4343;
+    border-radius: 1.2em;
+    display: flex;
+    width:  20vw;
+    flex-wrap:  wrap;
+    margin: 1em;
+    padding: 1em;
+}
+.pic{
+    align-items:left;
+}
+
+.amt {
+    color: green;
+    text-align: right;
+    margin-left: 3em;
+
+}
+
+.name{
+    text-align: center;
+    width: 9em;
+}
+
+.mainfriends *{
+    display: inline-block;
+}
