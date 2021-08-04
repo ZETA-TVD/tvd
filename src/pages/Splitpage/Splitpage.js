@@ -24,12 +24,7 @@ export class Splitpage extends React.Component{
                         </div>  
                         <Carousel slides={slides} autoplay={false} interval={1000}/>
                 </div>
-                <div className="friends">
-                        <div className="heading">
-                            <h1> Groups</h1>
-                        </div>  
-                        <Carousel slides={slides} autoplay={false} interval={1000}/>
-                </div>
+                
         
         </div>
     );
