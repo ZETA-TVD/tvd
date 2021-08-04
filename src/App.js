@@ -13,12 +13,15 @@ const App = () => {
 	return (
 	<div className="App">
 		<Navbar />
+		<div className="Main">
 			<Switch>
 				<Route path="/split" component={Splitpage} />
 				 <Route path="/signin" component={Signinpage} />
 				 <Route path="/register" component={Registerpage} />
 				 <Route path="/" component={Landingpage} />
 			</Switch>
+		</div>
+			
 		<Footer/>
 	</div>
 	);
