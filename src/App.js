@@ -9,7 +9,12 @@ import { Signinpage } from "./pages/Signinpage/Signinpage";
 import { Splitpage } from "./pages/Splitpage/Splitpage.js";
 import { Footer } from "./components/Footer/footer.component";
 
+import firebase from "./firebase";
+
 const App = () => {
+
+	const ref = firebase.firestore().collection("users");
+
 	return (
 	<div className="App">
 		<Navbar />
