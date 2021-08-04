@@ -12,7 +12,7 @@
 }
 
 .amt {
-    color: green;
+    color: #00ff00;
     text-align: right;
     margin-left: 3em;
 
@@ -21,6 +21,7 @@
 .name{
     text-align: center;
     width: 9em;
+    color: white;
 }
 
 .mainfriends *{
