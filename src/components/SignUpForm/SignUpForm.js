@@ -417,7 +417,7 @@ export const SignInForm = ({ heading }) => {
 								<p class="btn-text"><b>Sign in with google</b></p>
 							</div>
 							:<div>
-								<p class="btn-text"><b>Sign up with google</b></p>
+								<p class="btn-text"><b>hello with google</b></p>
 							</div>
 						}
 					</div>
