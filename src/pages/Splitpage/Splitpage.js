@@ -16,24 +16,24 @@ export class Splitpage extends React.Component{
                         </div>  
                         <Carousel>
                                 <div className="car">
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
+                                    <GroupCard name="Kuli"/>
+                                    <GroupCard name="Sasti"/>
+                                    <GroupCard name="Member"/>
                                 </div>
                                  <div className="car">
+                                    <GroupCard name="Daddy"/>
                                     <GroupCard name="tvd"/>
-                                    <GroupCard name="tvd"/>
-                                    <GroupCard name="tvd"/>
-                                </div>
-                                 <div className="car">
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
+                                    <GroupCard name="Suni"/>
                                 </div>
                                  <div className="car">
                                     <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
+                                    <GroupCard name="Reyna"/>
+                                    <GroupCard name="Pheonix"/>
+                                </div>
+                                 <div className="car">
+                                    <GroupCard name="Sheyda"/>
+                                    <GroupCard name="Mech"/>
+                                    <GroupCard name="Valo"/>
                                 </div>
                         </Carousel>
                 </div>
