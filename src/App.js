@@ -7,17 +7,27 @@ import { Landingpage } from "./pages/Landingpage/Landingpage";
 import { Registerpage } from "./pages/Registerpage/Registerpage";
 import { Signinpage } from "./pages/Signinpage/Signinpage";
 import { Splitpage } from "./pages/Splitpage/Splitpage.js";
+import { Footer } from "./components/Footer/footer.component";
+
+import firebase from "./firebase";
 
 const App = () => {
+
+	const ref = firebase.firestore().collection("users");
+
 	return (
 	<div className="App">
 		<Navbar />
+		<div className="Main">
 			<Switch>
 				<Route path="/split" component={Splitpage} />
 				 <Route path="/signin" component={Signinpage} />
 				 <Route path="/register" component={Registerpage} />
 				 <Route path="/" component={Landingpage} />
 			</Switch>
+		</div>
+			
+		<Footer/>
 	</div>
 	);
    };
