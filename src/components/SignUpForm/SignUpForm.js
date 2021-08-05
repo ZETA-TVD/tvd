@@ -374,9 +374,12 @@ export const SignInForm = ({ heading }) => {
 					<div className="wrap-input100 ">
 						<input
 							className="input100"
-							type="text"
+							type="email"
 							name="email"
+							id="email"
 							placeholder="  Email"
+							onChange={this.handleChange}
+							value={this.state.email}
 						/>
 						<span className="focus-input100"></span>
 						<span className="symbol-input100"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i></span>
@@ -386,8 +389,11 @@ export const SignInForm = ({ heading }) => {
 						<input
 							className="input100"
 							type="password"
-							name="pass"
+							name="password"
+							id="password"
 							placeholder="  Password"
+							onChange={this.handleChange}
+							value={this.state.password}
 						/>
 						<span className="focus-input100"></span>
 						<span className="symbol-input100"><i class="fa fa-key" aria-hidden="true"></i></span>
@@ -402,9 +408,16 @@ export const SignInForm = ({ heading }) => {
 							</label>
 					</div>
 					:<div></div>}
+
+
+					{heading==="Sign Up"?
 					<div className="container-login100-form-btn">
-						<button className="login100-form-btn"><b>{heading}</b></button>
+					<button className="login100-form-btn" onClick={this.login}><b>{heading}</b></button>
 					</div>
+					:<div className="container-login100-form-btn">
+					<button className="login100-form-btn" onClick={this.signup}><b>{heading}</b></button>
+					</div>}
+					
 					<div className=" orline text-center p-t-12 ">
 						<span>OR</span>
 					</div>
