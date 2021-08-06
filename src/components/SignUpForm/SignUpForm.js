@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import googleLogo from "../../assets/googlelogo.svg";
 
+import {auth,createuserProfileDocument}  from '../../config/fire';
+
 const SignInFormStyled = styled.div`
 	& a {
 		font-family: "Poppins", sans-serif;
@@ -335,119 +337,181 @@ const SignInFormStyled = styled.div`
 	
 `;
 
-export const SignInForm = ({ heading }) => {
-	return (
-		<SignInFormStyled className="container-login100">
-			<div className="wrap-login100">
-				<form className="login100-form">
-					<span className="login100-form-title">{heading==="Sign In"? <div><b>Welcome back</b></div>: <div><b>Welcome</b></div>}</span>
-					{ heading=== 'Sign Up'?
-					<div>
-						<div className="wrap-input100 ">
-							<input
-								className="input100"
-								type="text"
-								name="name"
-								placeholder="  Name"
-							/>
-							<span className="focus-input100"></span>
-							<span className="symbol-input100"><i class="fa fa-user" aria-hidden="true"></i></span>
-						</div>
+class SignInForm extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+		 email: "",
+		 name: "",
+		 password: '',
+		 phone_no: ""
+		};		
 
-						<div className="wrap-input100 ">
-							<input
-								className="input100"
-								type="tel"
-								name="phone_no"
-								placeholder="  Mobile Number"
-								maxlength="10"
-							/>
-							<span className="focus-input100"></span>
-							<span className="symbol-input100"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
-						</div>
-					</div>
-					:
-					<div>
-					</div>
-					}
+	  }
+	  handleSubmit= async event =>{
 
-					<div className="wrap-input100 ">
-						<input
-							className="input100"
-							type="text"
-							name="email"
-							placeholder="  Email"
-						/>
-						<span className="focus-input100"></span>
-						<span className="symbol-input100"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i></span>
-					</div>
+        event.preventDefault();
+        
+        const {name,email,password,phone_no}=this.state;   
+        try{
+            const {user} = await auth.createUserWithEmailAndPassword(email, password);
+            await createuserProfileDocument(user, {name});
+            this.setState(
+                {
+                    email: "",
+		 			name: "",
+		 			password: '',
+		 			phone_no: ""
+                });
+                
+        }catch(error){
+            console.log(error);
+        }
+    };
+    handleChange=event=>{
+        const {name,value} =event.target;
+        this.setState({[name]:value});
+    };
 
-					<div className="wrap-input100">
-						<input
-							className="input100"
-							type="password"
-							name="pass"
-							placeholder="  Password"
-						/>
-						<span className="focus-input100"></span>
-						<span className="symbol-input100"><i class="fa fa-key" aria-hidden="true"></i></span>
-					</div>
-
-					{heading==="Sign Up"?
-					<div className="text-center p-t-12 ">
-						<input type="checkbox" id="tnc" name="tnc" value="agree"/>	
-							<label for="tnc"> 
-							<span className="txt1"> I agree to terms and conditions
-							</span>
-							</label>
-					</div>
-					:<div></div>}
-					<div className="container-login100-form-btn">
-						<button className="login100-form-btn"><b>{heading}</b></button>
-					</div>
-					<div className=" orline text-center p-t-12 ">
-						<span>OR</span>
-					</div>
-					<div class="google-btn">
-						<div class="google-icon-wrapper">
-								<img class="google-icon" src={googleLogo}/>
-						</div>
-						{heading==="Sign In"?
-							<div>
-								<p class="btn-text"><b>Sign in with google</b></p>
-							</div>
-							:<div>
-								<p class="btn-text"><b>Sign Up with google</b></p>
-							</div>
-						}
-					</div>
-
-					{ heading==="Sign In"?
+	render(){
+		const { heading} = this.props;
+		return (
+			<SignInFormStyled className="container-login100">
+				<div className="wrap-login100">
+					<form className="login100-form" onSubmit={this.handleSubmit}>
+						<span className="login100-form-title">{heading==="Sign In"? <div><b>Welcome back</b></div>: <div><b>Welcome</b></div>}</span>
+						{ heading=== 'Sign Up'?
 						<div>
-							<div className="text-center p-t-12 ">
-								<span className="txt1">Forgot</span>
-								<br />
-								<a className="txt2" href="#">
-									Username / Password?
-								</a>
+							<div className="wrap-input100 ">
+								<input
+									className="input100"
+									type="text"
+									name="name"
+									placeholder="  Name"
+									onChange={this.handleChange}
+									value={this.state.name}
+								/>
+								<span className="focus-input100"></span>
+								<span className="symbol-input100"><i class="fa fa-user" aria-hidden="true"></i></span>
 							</div>
-
-							<div className="text-center p-t-35">
-								<a className="txt2" href="#">
-									Create your Account
-								</a>
+	
+							<div className="wrap-input100 ">
+								<input
+									className="input100"
+									type="tel"
+									name="phone_no"
+									placeholder="  Mobile Number"
+									maxlength="10"
+									onChange={this.handleChange}
+									value={this.state.phone_no}
+								/>
+								<span className="focus-input100"></span>
+								<span className="symbol-input100"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
 							</div>
 						</div>
-					:
-					<div className="text-center p-t-35">
-						<a className="txt2" href="#">
-								Already a user? Sign in
-						</a>
-					</div>
-					}
-					
-				</form>
-			</div>
-		</SignInFormStyled>
-	);
-};
+						:
+						<div>
+						</div>
+						}
+	
+						<div className="wrap-input100 ">
+							<input
+								className="input100"
+								type="email"
+								name="email"
+								id="email"
+								placeholder="  Email"
+								onChange={this.handleChange}
+								value={this.state.email}
+								
+							/>
+							<span className="focus-input100"></span>
+							<span className="symbol-input100"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i></span>
+						</div>
+	
+						<div className="wrap-input100">
+							<input
+								className="input100"
+								type="password"
+								name="password"
+								id="password"
+								placeholder="  Password"
+								onChange={this.handleChange}
+								value={this.state.password}
+								
+							/>
+							<span className="focus-input100"></span>
+							<span className="symbol-input100"><i class="fa fa-key" aria-hidden="true"></i></span>
+						</div>
+	
+						{heading==="Sign Up"?
+						<div className="text-center p-t-12 ">
+							<input type="checkbox" id="tnc" name="tnc" value="agree"/>	
+								<label for="tnc"> 
+								<span className="txt1"> I agree to terms and conditions
+								</span>
+								</label>
+						</div>
+						:<div></div>}
+	
+	
+						{heading==="Sign Up"?
+						<div className="container-login100-form-btn">
+						<button className="login100-form-btn" ><b>{heading}</b></button>
+						</div>
+						:<div className="container-login100-form-btn">
+						<button className="login100-form-btn" ><b>{heading}</b></button>
+						</div>}
+						
+						<div className=" orline text-center p-t-12 ">
+							<span>OR</span>
+						</div>
+						<div class="google-btn">
+							<div class="google-icon-wrapper">
+									<img class="google-icon" src={googleLogo}/>
+							</div>
+
+							{heading==="Sign In"?
+								<div>
+									<p class="btn-text"><b>Sign in with google</b></p>
+								</div>
+								:<div>
+									<p class="btn-text"><b>Sign up with google</b></p>
+								</div>
+							}
+						</div>
+	
+						{ heading==="Sign In"?
+							<div>
+								<div className="text-center p-t-12 ">
+									<span className="txt1">Forgot</span>
+									<br />
+									<a className="txt2" href="#">
+										Username / Password?
+									</a>
+								</div>
+	
+								<div className="text-center p-t-35">
+									<a className="txt2" href="#">
+										Create your Account
+									</a>
+								</div>
+
+							</div>
+						:
+						<div className="text-center p-t-35">
+							<a className="txt2" href="#">
+									Already a user? Sign in
+							</a>
+						</div>
+						}
+						
+					</form>
+				</div>
+			</SignInFormStyled>
+		);
+	};
+
+	}
+export default SignInForm
+	
