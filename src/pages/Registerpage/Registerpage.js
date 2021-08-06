@@ -1,5 +1,5 @@
 import React from "react";
-import { SignInForm } from "../../components/SignUpForm/SignUpForm";
+import  SignInForm  from "../../components/SignUpForm/SignUpForm";
 import MoneyWoman from "../../assets/moneywoman.png";
 import ".././Signinpage/signinpage.css";
 import Tilt from 'react-tilt'

@@ -5,7 +5,7 @@ import "./App.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Landingpage } from "./pages/Landingpage/Landingpage";
 import { Registerpage } from "./pages/Registerpage/Registerpage";
-import { Signinpage } from "./pages/Signinpage/Signinpage.js";
+import  Signinpage  from "./pages/Signinpage/Signinpage.js";
 import { Splitpage } from "./pages/Splitpage/Splitpage.js";
 import { Footer } from "./components/Footer/footer.component";
 
@@ -14,6 +14,7 @@ import React, {Component } from 'react';
 
 
 class App extends Component {
+	
 	constructor(props)
 	{
 		super(props);
