@@ -1,23 +1,19 @@
-.container1{
-    height: 90vh;
-}
 .groups{
     background-color: #DA0037;
     border-radius: 1.5em;
-    display: flex;
-    flex-wrap:  wrap;
     margin: 5em;
     padding: 1em;
 }
 
 .heading h1{
     justify-content: center;
+    color: white;
+    font-size: 2.3em;
 }
 
 .car *{
     display: inline-block;
 }
-
 
 .carousel-status{
     display: none;
@@ -25,4 +21,15 @@
 
 .car{
     margin-bottom: 10px;
+}
+
+.friends{
+    background-color: #DA0037;
+    border-radius: 1.5em;
+    margin: 5em;
+    padding: 1em;
+}
+
+.mainfriends *{
+    display: inline-block;
 }

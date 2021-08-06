@@ -470,6 +470,7 @@ class SignInForm extends React.Component {
 							<div class="google-icon-wrapper">
 									<img class="google-icon" src={googleLogo}/>
 							</div>
+
 							{heading==="Sign In"?
 								<div>
 									<p class="btn-text"><b>Sign in with google</b></p>
@@ -495,6 +496,7 @@ class SignInForm extends React.Component {
 										Create your Account
 									</a>
 								</div>
+
 							</div>
 						:
 						<div className="text-center p-t-35">

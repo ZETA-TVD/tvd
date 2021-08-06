@@ -59,22 +59,6 @@ class App extends Component {
 	</div>
 		)
 	}
-}
-/*
-const App = () => {
-	return (
-	<div className="App">
-		<Navbar />
-			<Switch>
-				<Route path="/split" component={Splitpage} />
-				 <Route path="/signin" component={Signinpage} />
-				 <Route path="/register" component={Registerpage} />
-				 <Route path="/" component={Landingpage} />
-			</Switch>
-		<Footer/>
-	</div>
-	);
-   };*/
-   
+}   
    export default App;
    
