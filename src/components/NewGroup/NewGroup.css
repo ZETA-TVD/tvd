@@ -1,52 +1,65 @@
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;
-  }
+.container3{
+	display: flex;
+	flex-wrap:  wrap;
+	background-color:#334756 ;
+	margin: 5em;
+    padding: 1em;
+    border-radius: 3em;
+}
 
-  .form-inline {  
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-    color: dodgerblue;
-  }
+.mainform{
+	margin: 0 auto;
+    display: table;
+}
 
-  .form-inline label {
-    margin: 5px 10px 5px 0;
-  }
+.formcontent {
+	justify-items: center;
+	color: dodgerblue;
+}
 
-  .form-inline input {
-    vertical-align: middle;
-    margin: 5px 10px 5px 0;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
+.formcontent label {
+		margin: 5px 10px 5px 0;
+		font-family: arial;
+	}
 
-  .button-section {
-    margin: 3%;
-  }
-  .button {
-    padding: 10px 20px;
-    background-color: dodgerblue;
-    border: 1px solid #ddd;
-    color: black;
-    cursor: pointer;
-    text-shadow: 1px 1px;
-  }
+.formcontent input {
+	vertical-align: middle;
+	margin: 5px 10px 5px 0;
+	padding: 10px;
+	width: 20vw;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 3em;
+}	
 
-  .button:hover {
-    background-color: yellow;
-  }
+.button-section {
+	margin: 3%;
+}
 
-  .remove {
-    background-color: #DA0037;
-    text-shadow: 1px 1px;
-  }
-  .remove:hover {
-    background-color: yellow;
-  }
+.button {
+	padding: 10px 20px;
+	background-color: dodgerblue;
+	border: 1px solid #ddd;
+	color: black;
+	margin: 1em;
+	border-radius: 2em;
+	cursor: pointer;
+	text-shadow: 1px 1px;
+}
 
-  .friendname{
-    margin-top: 3vh;
-    margin-left: 32vw;
-  }
+.button:hover {
+	background-color: yellow;
+}
+
+.remove {
+	background-color: #DA0037;
+	border-radius: 2em;
+}
+
+.h1{
+	font-size: 2em;
+}
+
+.remove:hover {
+	background-color: yellow;
+}

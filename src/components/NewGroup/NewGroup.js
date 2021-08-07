@@ -36,34 +36,32 @@ export class NewGroup extends React.Component {
 	render() {
 
 		return (
-				<form  onSubmit={this.handleSubmit}>
-					{this.state.formValues.map((element, index) => (
-						<div className="form-inline" key={index}>
-							{ index ?
-							<div className="friendname">
-								<label>Enter Friend Name</label>
-								<input type="text" name="friendname" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
-							</div>
-							:
-							<div>
-									<label>Enter Group Name</label>
-									<input type="text" name="groupname" value={element.groupname || ""} onChange={e => this.handleChange(index, e)} />
-									<label>Enter Friend Name</label>
-									<input type="text" name="friendname" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
-							</div>
-							}
-							{
-								index ? 
+			<div className="container3">
+					<form className="mainform" onSubmit={this.handleSubmit}>
+						{this.state.formValues.map((element, index) => (
+							<div className="formcontent" key={index}>
+								{ index ?
+								<div className="extrafriendname">
+									
+									<input type="text" name="friendname"  placeholder="Enter your Friend's Name" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
 									<button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>Remove</button> 
-								: null
-							}
+								</div>
+								:
+								<div>
+										
+										<input type="text" name="groupname" placeholder="Enter Group Name" value={element.groupname || ""} onChange={e => this.handleChange(index, e)} />	
+										
+										<input type="text" name="friendname" placeholder="Enter your Friend's Name"  value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
+								</div>
+								}
+							</div>
+						))}
+						<div className="button-section">
+								<button className="button add" type="button" onClick={() => this.addFormFields()}>Add</button>
+								<button className="button submit" type="submit">Submit</button>
 						</div>
-					))}
-					<div className="button-section">
-							<button className="button add" type="button" onClick={() => this.addFormFields()}>Add</button>
-							<button className="button submit" type="submit">Submit</button>
-					</div>
-			</form>
+				</form>
+			</div>
 		);
 	}
 }
