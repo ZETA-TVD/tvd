@@ -46,7 +46,8 @@ class App extends Component {
 			<div className="App">
 		<Navbar />
 		
-		{this.state.user? (<Switch>
+		<div className-="Main">
+			{this.state.user? (<Switch>
 				<Route path="/split" component={ Splitpage } />
 				 <Route path="/" component={ Landingpage } />
 			</Switch>) : <Switch>
@@ -54,6 +55,9 @@ class App extends Component {
 				 <Route path="/register" component={ Registerpage } />
 				 <Route path="/" component={ Landingpage } />
 			</Switch>}
+
+		</div>
+		
 			
 		<Footer/>
 	</div>
