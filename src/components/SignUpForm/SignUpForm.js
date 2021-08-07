@@ -444,15 +444,7 @@ class SignInForm extends React.Component {
 							<span className="symbol-input100"><i class="fa fa-key" aria-hidden="true"></i></span>
 						</div>
 	
-						{heading==="Sign Up"?
-						<div className="text-center p-t-12 ">
-							<input type="checkbox" id="tnc" name="tnc" value="agree"/>	
-								<label for="tnc"> 
-								<span className="txt1"> I agree to terms and conditions
-								</span>
-								</label>
-						</div>
-						:<div></div>}
+						
 	
 	
 						{heading==="Sign Up"?
@@ -481,30 +473,7 @@ class SignInForm extends React.Component {
 							}
 						</div>
 	
-						{ heading==="Sign In"?
-							<div>
-								<div className="text-center p-t-12 ">
-									<span className="txt1">Forgot</span>
-									<br />
-									<a className="txt2" href="#">
-										Username / Password?
-									</a>
-								</div>
-	
-								<div className="text-center p-t-35">
-									<a className="txt2" href="#">
-										Create your Account
-									</a>
-								</div>
-
-							</div>
-						:
-						<div className="text-center p-t-35">
-							<a className="txt2" href="#">
-									Already a user? Sign in
-							</a>
-						</div>
-						}
+						
 						
 					</form>
 				</div>
