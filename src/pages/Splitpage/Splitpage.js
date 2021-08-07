@@ -5,7 +5,6 @@ import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
 import { Woman1 } from "../../assets/woman1.jpg";
 import { FriendCard } from "../../components/FriendCard/FriendCard.js";
-import {NewGroup} from "../../components/NewGroup/NewGroup.js";
 import PopUp from "../../components/PopUp/PopUp";
 
 export class Splitpage extends React.Component{

@@ -5,7 +5,7 @@ import './PopUp.css';
 
 class PopUp extends React.Component{
     constructor(props) {
-		super(props)
+		super(props) 
 		this.state = { 
 			 formValues: [{ groupname: "", friendname : "" }]
 		 };
@@ -43,7 +43,7 @@ class PopUp extends React.Component{
             nested
         >
             {close => (
-                <div className="modal">
+                <div className="modal container3">
                     <button className="close" onClick={close}>
                     &times;
                     </button>
@@ -52,15 +52,12 @@ class PopUp extends React.Component{
 							<div className="formcontent" key={index}>
 								{ index ?
 								<div className="extrafriendname">
-									
 									<input type="text" name="friendname"  placeholder="Enter your Friend's Name" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
 									<button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>Remove</button> 
 								</div>
 								:
 								<div>
-										
 										<input type="text" name="groupname" placeholder="Enter Group Name" value={element.groupname || ""} onChange={e => this.handleChange(index, e)} />	
-										
 										<input type="text" name="friendname" placeholder="Enter your Friend's Name"  value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
 								</div>
 								}
