@@ -33,3 +33,7 @@
 .mainfriends *{
     display: inline-block;
 }
+
+.AddPopUp{
+    text-align: right;
+}
