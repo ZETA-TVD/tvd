@@ -1,11 +1,11 @@
 .modal {
-	font-size: 12px;
+	font-size: 1em;
 	background-color: rgb(12, 12, 43);
 	border-radius: 1%;
 	width: 100vh;
 }
 .modal > .header {
-	width: 100%;
+	width: 100%; 
 	border-bottom: 1px solid gray;
 	font-size: 18px;
 	text-align: center;
@@ -67,10 +67,6 @@
 	color: dodgerblue;
 }
 
-.formcontent label {
-	margin: 5px 10px 5px 0;
-	font-family: arial;
-}
 
 .formcontent input {
 	vertical-align: middle;
@@ -82,10 +78,24 @@
 	border-radius: 3em;
 }	
 
-.button-section {
-	margin: 3%;
-	margin: 0 auto;
+.groupname input{
+	margin-bottom: 2em;
+	background-color:rgba(218, 0, 55,60%);
+	width: 40vw;
+	height: 10vh;
+}
 
+.friendname {
+	align-items: center;
+}
+
+.button-section *{
+	justify-content: center;
+	
+}
+
+.grp ::placeholder{
+	color: blue;
 }
 
 .button {
@@ -114,4 +124,20 @@
 
 .remove:hover {
 	background-color: yellow;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { 
+   text-align: center;  
+}
+
+::-moz-placeholder {  
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
 }

@@ -44,21 +44,23 @@ class PopUp extends React.Component{
         >
             {close => (
                 <div className="modal container3">
-                    <button className="close" onClick={close}>
-                    &times;
-                    </button>
+                    
                     <form className="mainform" onSubmit={this.handleSubmit}>
 						{this.state.formValues.map((element, index) => (
 							<div className="formcontent" key={index}>
 								{ index ?
-								<div className="extrafriendname">
+								<div className="friendname">
 									<input type="text" name="friendname"  placeholder="Enter your Friend's Name" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
-									<button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>Remove</button> 
+									<button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>X</button> 
 								</div>
 								:
 								<div>
-										<input type="text" name="groupname" placeholder="Enter Group Name" value={element.groupname || ""} onChange={e => this.handleChange(index, e)} />	
+									<div className="groupname">
+										<input type="text" name="groupname" className= "grp" placeholder=" Group Name" value={element.groupname || ""} onChange={e => this.handleChange(index, e)} />	
+									</div>
+									<div className="friendname">	
 										<input type="text" name="friendname" placeholder="Enter your Friend's Name"  value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
+									</div>
 								</div>
 								}
 							</div>
