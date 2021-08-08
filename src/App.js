@@ -7,6 +7,7 @@ import { Landingpage } from "./pages/Landingpage/Landingpage";
 import { Registerpage } from "./pages/Registerpage/Registerpage";
 import  Signinpage  from "./pages/Signinpage/Signinpage.js";
 import { Splitpage } from "./pages/Splitpage/Splitpage.js";
+import { GroupPage } from "./pages/GroupPage/GroupPage.js";
 import { Footer } from "./components/Footer/footer.component";
 
 import fire from './config/fire';
@@ -47,6 +48,7 @@ class App extends Component {
 		<Navbar />
 		
 		{this.state.user? (<Switch>
+				<Route path="/group" component={ GroupPage } />
 				<Route path="/split" component={ Splitpage } />
 				 <Route path="/" component={ Landingpage } />
 			</Switch>) : <Switch>

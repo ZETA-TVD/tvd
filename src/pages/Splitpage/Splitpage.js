@@ -5,14 +5,14 @@ import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
 import { Woman1 } from "../../assets/woman1.jpg";
 import { FriendCard } from "../../components/FriendCard/FriendCard.js";
-import {NewGroup} from "../../components/NewGroup/NewGroup.js";
+import PopUp from "../../components/PopUp/PopUp";
 
 export class Splitpage extends React.Component{
     render() {
         return (
         <div className="container1">
                 <div className="groups">
-                        <div className="heading">
+                        <div className="heading1">
                             <h1> Groups</h1>
                         </div>  
                         <Carousel>
@@ -37,10 +37,15 @@ export class Splitpage extends React.Component{
                                     <GroupCard name="Tharvadu"/>
                                 </div>
                         </Carousel>
+                        <div className="AddPopUp">
+                            <div>
+                                <PopUp/>
+                            </div>
+                        </div>
                 </div>
 
                 <div className="friends">
-                    <div className="heading">
+                    <div className="heading1">
                         <h1>Friends</h1>
                     </div>
                     <div className="mainfriends">
@@ -51,7 +56,7 @@ export class Splitpage extends React.Component{
                         <FriendCard name="Sunapila" amt="Rs.27" pic=""/>
                     </div>
                 </div>
-                <NewGroup/>
+                
         </div>
     );
 }

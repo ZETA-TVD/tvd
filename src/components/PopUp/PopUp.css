@@ -1,0 +1,143 @@
+.modal {
+	font-size: 1em;
+	background-color: rgb(12, 12, 43);
+	border-radius: 1%;
+	width: 100vh;
+}
+.modal > .header {
+	width: 100%; 
+	border-bottom: 1px solid gray;
+	font-size: 18px;
+	text-align: center;
+	padding: 5px;
+}
+.modal > .content {
+	width: 100%;
+	padding: 10px 5px;
+}
+.modal > .actions {
+	width: 100%;
+	padding: 10px 5px;
+	margin: auto;
+	text-align: center;
+}
+.modal > .close {
+	cursor: pointer;
+	position: absolute;
+	right: 3em;
+	display: block;
+	padding: 2px 5px;
+	line-height: 20px;
+	font-size: 2em;
+	background: #ffffff;
+	border-radius: 1em;
+	border: 1px solid #cfcece;
+}
+
+.btn{
+	height: 2em;
+	line-height: 80px;  
+	width: 2em;  
+	font-size: 3em;
+	font-weight: bold;
+	border-radius: 50%;
+	background-color: #4CAF50;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+}
+
+.container3{
+	display: flex;
+	padding-top: 1em;
+	margin-top: 2em;
+	flex-wrap:  wrap;
+	background-color:#334756 ;
+	margin: 5em;
+	border-radius: 1em;
+}
+
+.mainform{
+	margin: 0 auto;
+	diplay: table;
+}
+
+.formcontent {
+	justify-items: center;
+	color: dodgerblue;
+}
+
+
+.formcontent input {
+	vertical-align: middle;
+	margin: 5px 10px 5px 0;
+	padding: 10px;
+	width: 20vw;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 3em;
+}	
+
+.groupname input{
+	margin-bottom: 2em;
+	background-color:rgba(218, 0, 55,60%);
+	width: 40vw;
+	height: 10vh;
+}
+
+.friendname {
+	align-items: center;
+}
+
+.button-section *{
+	justify-content: center;
+	
+}
+
+.grp ::placeholder{
+	color: blue;
+}
+
+.button {
+	padding: 10px 20px;
+	background-color: dodgerblue;
+	border: 1px solid #ddd;
+	color: black;
+	margin: 1em;
+	border-radius: 2em;
+	cursor: pointer;
+	font-family: arial;
+}
+
+.button:hover {
+	background-color: yellow;
+}
+
+.remove {
+	background-color: #DA0037;
+	border-radius: 2em;
+}
+
+.h1{
+	font-size: 2em;
+}
+
+.remove:hover {
+	background-color: yellow;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { 
+   text-align: center;  
+}
+
+::-moz-placeholder {  
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}

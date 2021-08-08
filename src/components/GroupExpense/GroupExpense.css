@@ -1,0 +1,26 @@
+.expense{
+    background-color: #C4C4C4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin:1em;
+    padding:1em;
+    border-radius: 0.5em;
+    }
+
+.remarks{
+   align-self: center;
+}
+
+.remark{
+    padding-top: 1em;
+}
+
+h5{
+    font-size: 1.2em;
+    color: #20b02f;
+}
+
+h2{
+    font-size: 1.9em;
+}

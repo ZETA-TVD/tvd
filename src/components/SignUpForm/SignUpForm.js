@@ -402,8 +402,8 @@ class SignInForm extends React.Component {
 									type="tel"
 									name="phone_no"
 									placeholder="  Mobile Number"
-									maxlength="10"
-									onChange={this.updateInput}
+									maxLength="10"
+									onChange={this.handleChange}
 									value={this.state.phone_no}
 								/>
 								<span className="focus-input100"></span>
@@ -436,23 +436,13 @@ class SignInForm extends React.Component {
 								type="password"
 								name="password"
 								id="password"
-								placeholder="  Password"								
+								placeholder="  Password"
+								onChange={this.handleChange}
+								value={this.state.password}							
 							/>
 							<span className="focus-input100"></span>
 							<span className="symbol-input100"><i class="fa fa-key" aria-hidden="true"></i></span>
 						</div>
-	
-						{heading==="Sign Up"?
-						<div className="text-center p-t-12 ">
-							<input type="checkbox" id="tnc" name="tnc" value="agree"/>	
-								<label for="tnc"> 
-								<span className="txt1"> I agree to terms and conditions
-								</span>
-								</label>
-						</div>
-						:<div></div>}
-	
-	
 						{heading==="Sign Up"?
 						<div className="container-login100-form-btn">
 						<button className="login100-form-btn" ><b>{heading}</b></button>
@@ -479,30 +469,7 @@ class SignInForm extends React.Component {
 							}
 						</div>
 	
-						{ heading==="Sign In"?
-							<div>
-								<div className="text-center p-t-12 ">
-									<span className="txt1">Forgot</span>
-									<br />
-									<a className="txt2" href="#">
-										Username / Password?
-									</a>
-								</div>
-	
-								<div className="text-center p-t-35">
-									<a className="txt2" href="#">
-										Create your Account
-									</a>
-								</div>
-
-							</div>
-						:
-						<div className="text-center p-t-35">
-							<a className="txt2" href="#">
-									Already a user? Sign in
-							</a>
-						</div>
-						}
+						
 						
 					</form>
 				</div>
