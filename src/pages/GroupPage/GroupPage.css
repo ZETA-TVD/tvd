@@ -1,0 +1,41 @@
+.container4{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.summary{
+  width: 40vw;
+  min-height: 50vh;
+  border: 2px solid #334756;
+  padding: 3em;
+  margin: 3em;
+  background-color: #334756;
+  border-radius: 0.75em;
+  
+}
+.report{
+    width:40vw;
+    min-height: 50vh;
+  border: 2px solid #334756;
+  padding: 3em;
+  margin: 3em;
+  background-color: #334756;
+  border-radius: 0.75em;
+
+
+}
+
+.heading{
+    background-color: #DA0037;
+    text-align: center;
+    height: 8vh;
+    width: 30vh;
+    border-radius: 2em;
+    padding:1em;
+}
+
+
+.heading h2{
+    font-size: 1.7em;
+}

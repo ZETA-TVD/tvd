@@ -401,7 +401,7 @@ class SignInForm extends React.Component {
 									type="tel"
 									name="phone_no"
 									placeholder="  Mobile Number"
-									maxlength="10"
+									maxLength="10"
 									onChange={this.handleChange}
 									value={this.state.phone_no}
 								/>
@@ -437,16 +437,11 @@ class SignInForm extends React.Component {
 								id="password"
 								placeholder="  Password"
 								onChange={this.handleChange}
-								value={this.state.password}
-								
+								value={this.state.password}							
 							/>
 							<span className="focus-input100"></span>
 							<span className="symbol-input100"><i class="fa fa-key" aria-hidden="true"></i></span>
 						</div>
-	
-						
-	
-	
 						{heading==="Sign Up"?
 						<div className="container-login100-form-btn">
 						<button className="login100-form-btn" ><b>{heading}</b></button>

@@ -20,6 +20,7 @@ export const Navbar = () => {
 	return (
 		<Nav className="Navbar">
 			<Link to="/"> Home </Link>
+			<Link className="element" to="/group"> Group</Link>
 			<Link className="element" to="/split"> Split</Link>
 			<div className="signin-signup">
 				<Link className="element" to="/signin"> Sign In </Link>

@@ -12,7 +12,7 @@ export class Splitpage extends React.Component{
         return (
         <div className="container1">
                 <div className="groups">
-                        <div className="heading">
+                        <div className="heading1">
                             <h1> Groups</h1>
                         </div>  
                         <Carousel>
@@ -45,7 +45,7 @@ export class Splitpage extends React.Component{
                 </div>
 
                 <div className="friends">
-                    <div className="heading">
+                    <div className="heading1">
                         <h1>Friends</h1>
                     </div>
                     <div className="mainfriends">
