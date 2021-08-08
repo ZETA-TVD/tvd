@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import googleLogo from "../../assets/googlelogo.svg";
 
-import {auth,createuserProfileDocument}  from '../../config/fire';
+import firebase from "../../config/fire";
 
 const SignInFormStyled = styled.div`
 	& a {
@@ -343,42 +343,43 @@ class SignInForm extends React.Component {
 		this.state = {
 		 email: "",
 		 name: "",
-		 password: '',
 		 phone_no: ""
 		};		
 
 	  }
-	  handleSubmit= async event =>{
 
-        event.preventDefault();
-        
-        const {name,email,password,phone_no}=this.state;   
-        try{
-            const {user} = await auth.createUserWithEmailAndPassword(email, password);
-            await createuserProfileDocument(user, {name});
-            this.setState(
-                {
-                    email: "",
-		 			name: "",
-		 			password: '',
-		 			phone_no: ""
-                });
-                
-        }catch(error){
-            console.log(error);
-        }
-    };
-    handleChange=event=>{
-        const {name,value} =event.target;
-        this.setState({[name]:value});
-    };
+	  addUser = e => {
+		e.preventDefault();
+		const db = firebase.firestore();
+  		db.settings({
+    		timestampsInSnapshots: true
+  		});
+		  
+  		const userRef = db.collection("users").add({
+    	name: this.state.name,
+    	email: this.state.email,
+		phone_no: this.state.phone_no
+  });
+
+		this.setState({
+			email: "",
+			name: "",
+			phone_no: ""
+		});
+	  };
+
+    updateInput = e => {
+		this.setState({
+		  [e.target.name]: e.target.value
+		});
+	  }
 
 	render(){
 		const { heading} = this.props;
 		return (
 			<SignInFormStyled className="container-login100">
 				<div className="wrap-login100">
-					<form className="login100-form" onSubmit={this.handleSubmit}>
+					<form className="login100-form" onSubmit={heading==="Sign Up"? this.addUser:{}}>
 						<span className="login100-form-title">{heading==="Sign In"? <div><b>Welcome back</b></div>: <div><b>Welcome</b></div>}</span>
 						{ heading=== 'Sign Up'?
 						<div>
@@ -388,7 +389,7 @@ class SignInForm extends React.Component {
 									type="text"
 									name="name"
 									placeholder="  Name"
-									onChange={this.handleChange}
+									onChange={this.updateInput}
 									value={this.state.name}
 								/>
 								<span className="focus-input100"></span>
@@ -421,7 +422,7 @@ class SignInForm extends React.Component {
 								name="email"
 								id="email"
 								placeholder="  Email"
-								onChange={this.handleChange}
+								onChange={this.updateInput}
 								value={this.state.email}
 								
 							/>
