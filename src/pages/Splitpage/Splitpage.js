@@ -6,8 +6,12 @@ import { Carousel } from 'react-responsive-carousel';
 import { Woman1 } from "../../assets/woman1.jpg";
 import { FriendCard } from "../../components/FriendCard/FriendCard.js";
 import PopUp from "../../components/PopUp/PopUp";
+import firebase  from '../../config/fire';
 
 export class Splitpage extends React.Component{
+    logout(){
+        firebase.auth().signOut()
+    }
     render() {
         return (
         <div className="container1">
@@ -56,7 +60,7 @@ export class Splitpage extends React.Component{
                         <FriendCard name="Sunapila" amt="Rs.27" pic=""/>
                     </div>
                 </div>
-                
+                <button onClick={this.logout}>Logout</button>
         </div>
     );
 }
