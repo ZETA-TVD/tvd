@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import googleLogo from "../../assets/googlelogo.svg";
 
-import {auth,createuserProfileDocument}  from '../../config/fire';
+import firebase from "../../config/fire";
 
 const SignInFormStyled = styled.div`
 	& a {
@@ -338,47 +338,63 @@ const SignInFormStyled = styled.div`
 `;
 
 class SignInForm extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+		this.login= this.login.bind(this);
 		this.state = {
 		 email: "",
 		 name: "",
-		 password: '',
-		 phone_no: ""
+		 phone_no: "",
+		 password: ""
 		};		
 
 	  }
-	  handleSubmit= async event =>{
 
-        event.preventDefault();
-        
-        const {name,email,password,phone_no}=this.state;   
-        try{
-            const {user} = await auth.createUserWithEmailAndPassword(email, password);
-            await createuserProfileDocument(user, {name});
-            this.setState(
-                {
-                    email: "",
-		 			name: "",
-		 			password: '',
-		 			phone_no: ""
-                });
-                
-        }catch(error){
-            console.log(error);
-        }
-    };
-    handleChange=event=>{
-        const {name,value} =event.target;
-        this.setState({[name]:value});
-    };
+	  addUser = e => {
+		e.preventDefault();
+  		const userRef = firebase.firestore().collection("users").add({
+    	name: this.state.name,
+    	email: this.state.email,
+		phone_no: this.state.phone_no
+  });
+
+  firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
+	console.log(u)
+}).catch((err)=>{
+	console.log(err);
+})
+
+
+
+		this.setState({
+			email: "",
+			name: "",
+			phone_no: "",
+			password: ""
+		});
+	  };
+
+	  login(e){
+		e.preventDefault();
+		firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
+			console.log(u)
+		}).catch((err)=>{
+			console.log(err);
+		})
+	}
+
+    updateInput = e => {
+		this.setState({
+		  [e.target.name]: e.target.value
+		});
+	  }
 
 	render(){
 		const { heading} = this.props;
 		return (
 			<SignInFormStyled className="container-login100">
 				<div className="wrap-login100">
-					<form className="login100-form" onSubmit={this.handleSubmit}>
+					<form className="login100-form" onSubmit={heading==="Sign Up"? this.addUser:this.login}>
 						<span className="login100-form-title">{heading==="Sign In"? <div><b>Welcome back</b></div>: <div><b>Welcome</b></div>}</span>
 						{ heading=== 'Sign Up'?
 						<div>
@@ -388,7 +404,7 @@ class SignInForm extends React.Component {
 									type="text"
 									name="name"
 									placeholder="  Name"
-									onChange={this.handleChange}
+									onChange={this.updateInput}
 									value={this.state.name}
 								/>
 								<span className="focus-input100"></span>
@@ -401,8 +417,8 @@ class SignInForm extends React.Component {
 									type="tel"
 									name="phone_no"
 									placeholder="  Mobile Number"
-									maxLength="10"
-									onChange={this.handleChange}
+									maxlength="10"
+									onChange={this.updateInput}
 									value={this.state.phone_no}
 								/>
 								<span className="focus-input100"></span>
@@ -421,7 +437,7 @@ class SignInForm extends React.Component {
 								name="email"
 								id="email"
 								placeholder="  Email"
-								onChange={this.handleChange}
+								onChange={this.updateInput}
 								value={this.state.email}
 								
 							/>
@@ -435,13 +451,25 @@ class SignInForm extends React.Component {
 								type="password"
 								name="password"
 								id="password"
-								placeholder="  Password"
-								onChange={this.handleChange}
-								value={this.state.password}							
+								placeholder="  Password"	
+								onChange={this.updateInput}
+								value={this.state.password}						
 							/>
 							<span className="focus-input100"></span>
 							<span className="symbol-input100"><i class="fa fa-key" aria-hidden="true"></i></span>
 						</div>
+	
+						{heading==="Sign Up"?
+						<div className="text-center p-t-12 ">
+							<input type="checkbox" id="tnc" name="tnc" value="agree"/>	
+								<label for="tnc"> 
+								<span className="txt1"> I agree to terms and conditions
+								</span>
+								</label>
+						</div>
+						:<div></div>}
+	
+	
 						{heading==="Sign Up"?
 						<div className="container-login100-form-btn">
 						<button className="login100-form-btn" ><b>{heading}</b></button>
@@ -468,7 +496,30 @@ class SignInForm extends React.Component {
 							}
 						</div>
 	
-						
+						{ heading==="Sign In"?
+							<div>
+								<div className="text-center p-t-12 ">
+									<span className="txt1">Forgot</span>
+									<br />
+									<a className="txt2" href="#">
+										Username / Password?
+									</a>
+								</div>
+	
+								<div className="text-center p-t-35">
+									<a className="txt2" href="#">
+										Create your Account
+									</a>
+								</div>
+
+							</div>
+						:
+						<div className="text-center p-t-35">
+							<a className="txt2" href="#">
+									Already a user? Sign in
+							</a>
+						</div>
+						}
 						
 					</form>
 				</div>
