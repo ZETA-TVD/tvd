@@ -344,19 +344,24 @@ class SignInForm extends React.Component {
 		this.state = {
 		 email: "",
 		 name: "",
+
 		 phone_no: "",
 		 password: ""
+
 		};		
 
 	  }
 
 	  addUser = e => {
 		e.preventDefault();
+
   		const userRef = firebase.firestore().collection("users").add({
+
     	name: this.state.name,
     	email: this.state.email,
 		phone_no: this.state.phone_no
   });
+
 
   firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
 	console.log(u)
@@ -383,6 +388,7 @@ class SignInForm extends React.Component {
 		})
 	}
 
+
     updateInput = e => {
 		this.setState({
 		  [e.target.name]: e.target.value
@@ -394,7 +400,9 @@ class SignInForm extends React.Component {
 		return (
 			<SignInFormStyled className="container-login100">
 				<div className="wrap-login100">
+
 					<form className="login100-form" onSubmit={heading==="Sign Up"? this.addUser:this.login}>
+
 						<span className="login100-form-title">{heading==="Sign In"? <div><b>Welcome back</b></div>: <div><b>Welcome</b></div>}</span>
 						{ heading=== 'Sign Up'?
 						<div>
