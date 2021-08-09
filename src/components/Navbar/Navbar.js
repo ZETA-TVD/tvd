@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Navbar.css";
+import firebase  from '../../config/fire';
 
 export const Navbar = () => {
 	const Nav = styled.div`
@@ -17,14 +18,27 @@ export const Navbar = () => {
 		}
 		&
 	`;
+	const onSignOutClick = () => {
+	  if (currentUser) {
+	    firebase
+	      .auth()
+	      .signOut()
+	  } else history.push("/register");
+	};
 	return (
 		<Nav className="Navbar">
 			<Link to="/"> Home </Link>
 			<Link className="element" to="/group"> Group</Link>
 			<Link className="element" to="/split"> Split</Link>
 			<div className="signin-signup">
-				<Link className="element" to="/signin"> Sign In </Link>
-				<Link className="element" to="/register"> Register </Link>
+				<Link to="/signin" className="link auth">
+				        {currentUser
+				          ? `Hey ${currentUser.displayName.split(" ")[0]}!`
+				          : "Sign In"}
+				 </Link>
+				<Link className="link signup" onClick={onSignOutClick}>
+				        {currentUser ? "Sign Out" : "Sign Up"}
+				</Link>
 			</div>
 		</Nav>
 	);
