@@ -47,7 +47,8 @@ class App extends Component {
 			<div className="App">
 		<Navbar />
 		
-		{this.state.user? (<Switch>
+		{this.state.user? (
+			<Switch>
 				<Route path="/group" component={ GroupPage } />
 				<Route path="/split" component={ Splitpage } />
 				 <Route path="/" component={ Landingpage } />
@@ -62,5 +63,5 @@ class App extends Component {
 		)
 	}
 }   
-   export default App;
-   
+	export default App;
+	

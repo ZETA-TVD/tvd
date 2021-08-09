@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Navbar.css";
-import firebase  from '../../config/fire';
+import fire  from '../../config/fire';
 
-export const Navbar = () => {
+
 	const Nav = styled.div`
 		& {
 			height: 10vh;
@@ -18,28 +18,59 @@ export const Navbar = () => {
 		}
 		&
 	`;
-	const onSignOutClick = () => {
-	  if (currentUser) {
-	    firebase
+	export class Navbar extends React.Component {
+	constructor(props)
+	{
+		super(props);
+		this.state={
+			user:{}
+		}
+	}
+	componentDidMount()
+	{
+		this.authListener();
+	}
+	authListener(){
+		fire.auth().onAuthStateChanged((user)=>{
+			if(user)
+			{
+				this.setState({user})
+			}
+			else{
+				this.setState({user : null})
+			}
+		})
+	}
+
+	onSignOutClick = () => {
+	  if (this.state.user) {
+	    fire
 	      .auth()
 	      .signOut()
-	  } else history.push("/register");
+	  } 
 	};
+	render(){
 	return (
 		<Nav className="Navbar">
-			<Link to="/"> Home </Link>
-			<Link className="element" to="/group"> Group</Link>
-			<Link className="element" to="/split"> Split</Link>
-			<div className="signin-signup">
-				<Link to="/signin" className="link auth">
-				        {currentUser
-				          ? `Hey ${currentUser.displayName.split(" ")[0]}!`
-				          : "Sign In"}
-				 </Link>
-				<Link className="link signup" onClick={onSignOutClick}>
-				        {currentUser ? "Sign Out" : "Sign Up"}
-				</Link>
-			</div>
+			{this.state.user?
+				<div>
+					<Link  to="/"> Home </Link>
+					<div className="right">
+						<Link className="element" to="/group"> Group</Link>
+						<Link className="element" to="/split"> Split</Link>
+						<Link className="element"  onClick={this.onSignOutClick}>Log Out</Link>
+					</div>
+				</div>
+				:
+				<div>
+					<Link to="/"> Home </Link>
+					<div className="right">
+						<Link className="element" to="/signin" > Sign In </Link>
+						<Link className="element"  to="/register"> Sign Up </Link>
+					</div>
+				</div>}
 		</Nav>
 	);
+}
 };
+
