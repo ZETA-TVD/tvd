@@ -2,6 +2,7 @@ import React from "react";
 import "./GroupPage.css";
 import { GroupExpense } from "../../components/GroupExpense/GroupExpense.js";
 import { FriendReport } from "../../components/FriendReport/FriendReport.js";
+import PopUpexpense from "../../components/PopUpexpense/PopUpexpense";
 
 export const GroupPage =() =>{
     return(
@@ -13,6 +14,11 @@ export const GroupPage =() =>{
                 <GroupExpense title="Charminaar" host="Kuli" hostamt="1000" splitamt="100"/>
                 <GroupExpense title="ITC" host="Sasti"  hostamt="10070"  splitamt="1600"/>
                 <GroupExpense title="FK" host="anty" hostamt="10080" splitamt="1700"/>
+                <div className="AddPopUp">
+                    <div>
+                        <PopUpexpense/>
+                    </div>
+                </div>
             </div>
 
         <div class="report">
