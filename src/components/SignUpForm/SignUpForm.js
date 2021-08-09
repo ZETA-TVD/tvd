@@ -344,9 +344,9 @@ class SignInForm extends React.Component {
 		this.state = {
 		 email: "",
 		 name: "",
-
 		 phone_no: "",
-		 password: ""
+		 password: "",
+		 uid: ""
 
 		};		
 
@@ -354,29 +354,31 @@ class SignInForm extends React.Component {
 
 	  addUser = e => {
 		e.preventDefault();
+		firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then(data => {
+			console.log("User ID :- ", data.user.uid);
+			this.setState({
+				uid: data.user.uid
+			})
+			firebase.firestore().collection("users").add({
 
-  		const userRef = firebase.firestore().collection("users").add({
-
-    	name: this.state.name,
-    	email: this.state.email,
-		phone_no: this.state.phone_no
-  });
-
-
-  firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-	console.log(u)
-}).catch((err)=>{
-	console.log(err);
-})
-
-
-
-		this.setState({
+				name: this.state.name,
+				email: this.state.email,
+				phone_no: this.state.phone_no,
+				id: this.state.uid
+		  }).then(()=>{this.setState({
 			email: "",
 			name: "",
 			phone_no: "",
-			password: ""
-		});
+			password: "",
+			uid: ""
+		})});
+		}).catch((err)=>{
+		  console.log(err);
+	  })
+
+
+
+		
 	  };
 
 	  login(e){
