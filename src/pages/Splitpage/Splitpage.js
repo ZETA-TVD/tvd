@@ -5,16 +5,16 @@ import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
 import { Woman1 } from "../../assets/woman1.jpg";
 import { FriendCard } from "../../components/FriendCard/FriendCard.js";
+import { Totalbalance } from "../../components/Totalbalance/Totalbalance.js";
 import PopUp from "../../components/PopUp/PopUp";
 import firebase  from '../../config/fire';
 
 export class Splitpage extends React.Component{
-    logout(){
-        firebase.auth().signOut()
-    }
+    
     render() {
         return (
         <div className="container1">
+        <Totalbalance totalamt="100"/>
                 <div className="groups">
                         <div className="heading1">
                             <h1> Groups</h1>
@@ -60,7 +60,7 @@ export class Splitpage extends React.Component{
                         <FriendCard name="Sunapila" amt="Rs.27" pic=""/>
                     </div>
                 </div>
-                <button onClick={this.logout}>Logout</button>
+                
         </div>
     );
 }

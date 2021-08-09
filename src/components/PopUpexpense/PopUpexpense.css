@@ -47,12 +47,12 @@
 	cursor: pointer;
 }
 
-.container6{
+.container5{
 	display: flex;
 	padding-top: 1em;
 	margin-top: 2em;
 	flex-wrap:  wrap;
-	background-color:#334756 ;
+	background-color:#DA0037 ;
 	margin: 5em;
 	border-radius: 1em;
 }
@@ -80,8 +80,9 @@
 
 .groupname input{
 	margin-bottom: 2em;
-	background-color:rgba(218, 0, 55,60%);
+	background-color:rgba(3, 13, 20,75%);
 	width: 40vw;
+	color: white;
 	height: 10vh;
 }
 
@@ -107,6 +108,7 @@
 	border-radius: 2em;
 	cursor: pointer;
 	font-family: arial;
+	justify-content: center;
 }
 
 .button:hover {
