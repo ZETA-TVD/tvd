@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import Popup from 'reactjs-popup';
 import './PopUp.css';
+import firebase from "../../config/fire";
 
 class PopUp extends React.Component{
     constructor(props) {
@@ -32,7 +33,15 @@ class PopUp extends React.Component{
 
 	handleSubmit(event) {
 		event.preventDefault();
-		alert(JSON.stringify(this.state.formValues));
+		// console.log(this.state.formValues);
+		const groupdetails = {
+			group_name:this.state.formValues[0].groupname,
+			members:this.state.formValues.map(member => {return{id:member.friendname, amount:0}})
+		}
+		firebase.firestore().collection("groups").add(
+			groupdetails
+		).then(()=>close());
+		console.log(groupdetails);
 	}
 
     render(){
@@ -45,12 +54,12 @@ class PopUp extends React.Component{
             {close => (
                 <div className="modal container6">
                     
-                    <form className="mainform" onSubmit={this.handleSubmit}>
+                    <form className="mainform" onSubmit={()=>close()}>
 						{this.state.formValues.map((element, index) => (
 							<div className="formcontent" key={index}>
 								{ index ?
 								<div className="friendname">
-									<input type="text" name="friendname"  placeholder="Enter your Friend's Name" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
+									<input type="email" name="friendname"  placeholder="Enter your Friend's Name" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
 									<button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>X</button> 
 								</div>
 								:
@@ -67,7 +76,7 @@ class PopUp extends React.Component{
 						))}
 						<div className="button-section">
 								<button className="button add" type="button" onClick={() => this.addFormFields()}>Add</button>
-								<button className="button submit" type="submit">Submit</button>
+								<button className="button submit" type="submit" onClick={(e) => this.handleSubmit(e)}>Submit</button>
 						</div>
 				</form>
                 </div>
