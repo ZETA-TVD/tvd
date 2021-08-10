@@ -31,16 +31,23 @@ class PopUp extends React.Component{
 		this.setState({ formValues });
 	}
 
-	handleSubmit(event) {
+	handleSubmit(event,close) {
 		event.preventDefault();
 		// console.log(this.state.formValues);
 		const groupdetails = {
 			group_name:this.state.formValues[0].groupname,
 			members:this.state.formValues.map(member => {return{id:member.friendname, amount:0}})
 		}
+		const user = firebase.auth().currentUser;
+
+		if(user.email)
+		{
+			groupdetails.members.push({id:user.email,amount:0});
+		}
 		firebase.firestore().collection("groups").add(
 			groupdetails
-		).then(()=>close());
+		);
+		close();
 		console.log(groupdetails);
 	}
 
@@ -54,7 +61,7 @@ class PopUp extends React.Component{
             {close => (
                 <div className="modal container11 br3 --navy">
                     
-                    <form className="mainform" onSubmit={()=>close()}>
+                    <form className="mainform">
 						{this.state.formValues.map((element, index) => (
 							<div className="formcontent" key={index}>
 								{ index ?
@@ -76,7 +83,7 @@ class PopUp extends React.Component{
 						))}
 						<div className="button-section">
 								<button className="button add" type="button" onClick={() => this.addFormFields()}>Add</button>
-								<button className="button submit" type="submit" onClick={(e) => this.handleSubmit(e)}>Submit</button>
+								<button className="button submit" type="submit" onClick={(e) => this.handleSubmit(e,close)}>Submit</button>
 						</div>
 				</form>
                 </div>
