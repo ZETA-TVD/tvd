@@ -46,9 +46,11 @@ class PopUp extends React.Component{
 		}
 		firebase.firestore().collection("groups").add(
 			groupdetails
-		);
+		).then(()=>firebase.firestore().collection("users").where('email','in',groupdetails.members.map(member => member.id)).get().then(snap => snap.docs.forEach(doc => firebase.firestore().collection("users").doc(doc.id).update({groups:[groupdetails.group_name]}))));
+		console.log(groupdetails.members.map(member => member.id));
 		close();
 		console.log(groupdetails);
+
 	}
 
     render(){
