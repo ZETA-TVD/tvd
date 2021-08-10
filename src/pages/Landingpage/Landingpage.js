@@ -8,6 +8,7 @@ export const Landingpage = () => {
 			<div className="Main-text">
 				<p>
 				Keeping track of balances <br/>& shared expenses
+				<div class="typewrite">
 				<Typewriter
 					options={{
 						strings: ['with friends', 'with your loved ones','on trips'],
@@ -17,6 +18,7 @@ export const Landingpage = () => {
 						deleteSpeed: 150,
 					}}
 				/>
+				</div>
 				</p>
 				
 			</div>

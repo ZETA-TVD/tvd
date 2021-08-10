@@ -23,7 +23,7 @@ class PopUpexpense extends React.Component{
             trigger={<button className="btn grow ba b--purple"> + </button>}
             modal
             nested
-        >
+        > 
             {close => (
                 <div className="modal container5">
                     
