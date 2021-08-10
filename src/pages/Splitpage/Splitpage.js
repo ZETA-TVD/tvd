@@ -7,6 +7,7 @@ import { Woman1 } from "../../assets/woman1.jpg";
 import { FriendCard } from "../../components/FriendCard/FriendCard.js";
 import { Totalbalance } from "../../components/Totalbalance/Totalbalance.js";
 import PopUp from "../../components/PopUp/PopUp";
+import PopUpfriend from "../../components/PopUpfriend/PopUpfriend";
 import firebase  from '../../config/fire';
 
 export class Splitpage extends React.Component{
@@ -53,11 +54,18 @@ export class Splitpage extends React.Component{
                         <h1>Friends</h1>
                     </div>
                     <div className="mainfriends">
+                        <div>
                         <FriendCard name="Sasti Randi" amt="Rs.10" pic=""/>
                         <FriendCard name="Daddy Kul" amt="Rs.1000" pic=""/>
                         <FriendCard name="Member Anto" amt="Rs.101" pic=""/>
                         <FriendCard name="Gobi Manchurian" amt="Rs.19" pic=""/>
                         <FriendCard name="Sunapila" amt="Rs.27" pic=""/>
+                        </div>
+                        <div className="AddPopUp">
+                            <div>
+                                <PopUpfriend/>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </div>

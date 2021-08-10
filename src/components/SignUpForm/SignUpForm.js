@@ -346,8 +346,9 @@ class SignInForm extends React.Component {
 		 name: "",
 		 phone_no: "",
 		 password: "",
-		 uid: ""
-
+		 uid: "",
+		 groups:[],
+		 friends:[]	
 		};		
 
 	  }
@@ -364,13 +365,17 @@ class SignInForm extends React.Component {
 				name: this.state.name,
 				email: this.state.email,
 				phone_no: this.state.phone_no,
-				id: this.state.uid
+				id: this.state.uid,
+				groups:[],
+		 		friends:[]	
 		  }).then(()=>{this.setState({
 			email: "",
 			name: "",
 			phone_no: "",
 			password: "",
-			uid: ""
+			uid: "",
+			groups:[],
+		 	friends:[]	
 		})});
 		}).catch((err)=>{
 		  console.log(err);
