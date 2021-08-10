@@ -5,7 +5,7 @@ export const FriendCard =({name,amt,pic}) =>{
     return(
      <div className="groups1">
         <div className="pic">
-            <img src={pic}/>
+            <img src={pic} />
         </div>
         <div className="name">
             {name}

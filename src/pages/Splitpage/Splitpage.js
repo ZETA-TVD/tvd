@@ -60,7 +60,6 @@ export class Splitpage extends React.Component{
                         <FriendCard name="Sunapila" amt="Rs.27" pic=""/>
                     </div>
                 </div>
-                
         </div>
     );
 }
