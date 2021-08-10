@@ -23,23 +23,23 @@ export class Splitpage extends React.Component{
                         <Carousel>
                                 <div className="car">
                                     <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
+                                    <GroupCard name="Kuli"/>
+                                    <GroupCard name="Sasti"/>
                                 </div>
                                  <div className="car">
                                     <GroupCard name="tvd"/>
-                                    <GroupCard name="tvd"/>
-                                    <GroupCard name="tvd"/>
+                                    <GroupCard name="Member"/>
+                                    <GroupCard name="Gobi"/>
                                 </div>
                                  <div className="car">
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
+                                    <GroupCard name="Suni"/>
+                                    <GroupCard name="Amal"/>
+                                    <GroupCard name="Valo"/>
                                 </div>
                                  <div className="car">
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Tharvadu"/>
+                                    <GroupCard name="Subroza"/>
+                                    <GroupCard name="TSM"/>
+                                    <GroupCard name="Berlin"/>
                                 </div>
                         </Carousel>
                         <div className="AddPopUp">

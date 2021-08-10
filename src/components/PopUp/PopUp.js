@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import Popup from 'reactjs-popup';
 import './PopUp.css';
+import firebase from "../../config/fire";
 
 class PopUp extends React.Component{
     constructor(props) {
@@ -30,9 +31,24 @@ class PopUp extends React.Component{
 		this.setState({ formValues });
 	}
 
-	handleSubmit(event) {
+	handleSubmit(event,close) {
 		event.preventDefault();
-		alert(JSON.stringify(this.state.formValues));
+		// console.log(this.state.formValues);
+		const groupdetails = {
+			group_name:this.state.formValues[0].groupname,
+			members:this.state.formValues.map(member => {return{id:member.friendname, amount:0}})
+		}
+		const user = firebase.auth().currentUser;
+
+		if(user.email)
+		{
+			groupdetails.members.push({id:user.email,amount:0});
+		}
+		firebase.firestore().collection("groups").add(
+			groupdetails
+		);
+		close();
+		console.log(groupdetails);
 	}
 
     render(){
@@ -43,14 +59,14 @@ class PopUp extends React.Component{
             nested
         >
             {close => (
-                <div className="modal container6">
+                <div className="modal container11 br3 --navy">
                     
-                    <form className="mainform" onSubmit={this.handleSubmit}>
+                    <form className="mainform">
 						{this.state.formValues.map((element, index) => (
 							<div className="formcontent" key={index}>
 								{ index ?
 								<div className="friendname">
-									<input type="text" name="friendname"  placeholder="Enter your Friend's Name" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
+									<input type="email" name="friendname"  placeholder="Enter your Friend's Name" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
 									<button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>X</button> 
 								</div>
 								:
@@ -67,7 +83,7 @@ class PopUp extends React.Component{
 						))}
 						<div className="button-section">
 								<button className="button add" type="button" onClick={() => this.addFormFields()}>Add</button>
-								<button className="button submit" type="submit">Submit</button>
+								<button className="button submit" type="submit" onClick={(e) => this.handleSubmit(e,close)}>Submit</button>
 						</div>
 				</form>
                 </div>

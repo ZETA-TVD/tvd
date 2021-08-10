@@ -11,6 +11,7 @@ import fire  from '../../config/fire';
 			background: #DA0037;
 			filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 			display:flex;
+			flex-wrap: wrap;
 			justify-content:space-between;
 			align-items:center;
 			gap:20px;
@@ -54,20 +55,19 @@ import fire  from '../../config/fire';
 		<Nav className="Navbar">
 			{this.state.user?
 				<div>
-					<Link  to="/"> Home </Link>
-					<div className="right">
-						<Link className="element" to="/group"> Group</Link>
-						<Link className="element" to="/split"> Split</Link>
-						<Link className="element"  onClick={this.onSignOutClick}>Log Out</Link>
-					</div>
+					<Link className="element1" to="/"> Home </Link>
+						<Link className="element " to="/split"> Split</Link>
+					
+						<Link className="element   "  onClick={this.onSignOutClick}>Log Out</Link>
+					
 				</div>
 				:
 				<div>
 					<Link to="/"> Home </Link>
-					<div className="right">
+					
 						<Link className="element" to="/signin" > Sign In </Link>
 						<Link className="element"  to="/register"> Sign Up </Link>
-					</div>
+					
 				</div>}
 		</Nav>
 	);
