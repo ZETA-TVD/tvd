@@ -52,7 +52,7 @@ class PopUp extends React.Component{
             nested
         >
             {close => (
-                <div className="modal container6">
+                <div className="modal container11 br3 --navy">
                     
                     <form className="mainform" onSubmit={()=>close()}>
 						{this.state.formValues.map((element, index) => (
