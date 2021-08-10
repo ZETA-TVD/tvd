@@ -55,10 +55,10 @@ import fire  from '../../config/fire';
 			{this.state.user?
 				<div>
 					<Link  to="/"> Home </Link>
-					<div className="right">
-						<Link className="element" to="/group"> Group</Link>
-						<Link className="element" to="/split"> Split</Link>
-						<Link className="element"  onClick={this.onSignOutClick}>Log Out</Link>
+					<div className="right ">
+						{/*<Link className="element " to="/group"> Group</Link>*/}
+						<Link className="element " to="/split"> Split</Link>
+						<Link className="element "  onClick={this.onSignOutClick}>Log Out</Link>
 					</div>
 				</div>
 				:
