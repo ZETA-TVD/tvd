@@ -11,8 +11,22 @@ import PopUpfriend from "../../components/PopUpfriend/PopUpfriend";
 import firebase  from '../../config/fire';
 
 export class Splitpage extends React.Component{
-    
+    constructor(props) {
+		super(props);
+		this.state = {
+		 groups:[]
+		};		
+
+	  }
+      componentDidMount()
+      {
+          const uid= firebase.auth().currentUser.uid
+          firebase.firestore().collection("users").doc(uid).get().then(doc=>{this.setState({groups:doc.data().groups})})
+      }
+      
+
     render() {
+        console.log(this.state)
         return (
         <div className="container1">
         <Totalbalance totalamt="100"/>
@@ -20,26 +34,18 @@ export class Splitpage extends React.Component{
                         <div className="heading1">
                             <h1> Groups</h1>
                         </div>  
-                        <Carousel>
+                        <Carousel>                            
                                 <div className="car">
-                                    <GroupCard name="Tharvadu"/>
-                                    <GroupCard name="Kuli"/>
-                                    <GroupCard name="Sasti"/>
+                                    {this.state.groups.slice(0,3).map(group =><GroupCard name={group}/>)}
                                 </div>
                                  <div className="car">
-                                    <GroupCard name="tvd"/>
-                                    <GroupCard name="Member"/>
-                                    <GroupCard name="Gobi"/>
+                                 {this.state.groups.slice(3,6).map(group =><GroupCard name={group}/>)}
                                 </div>
                                  <div className="car">
-                                    <GroupCard name="Suni"/>
-                                    <GroupCard name="Amal"/>
-                                    <GroupCard name="Valo"/>
+                                 {this.state.groups.slice(6,9).map(group =><GroupCard name={group}/>)}
                                 </div>
                                  <div className="car">
-                                    <GroupCard name="Subroza"/>
-                                    <GroupCard name="TSM"/>
-                                    <GroupCard name="Berlin"/>
+                                 {this.state.groups.slice(9,12).map(group =><GroupCard name={group}/>)}
                                 </div>
                         </Carousel>
                         <div className="AddPopUp">
