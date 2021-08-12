@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import Popup from 'reactjs-popup';
 import './PopUpfriend.css';
+import firebase  from '../../config/fire';
 
 class PopUpfriend extends React.Component{
     constructor(props) {
@@ -13,7 +14,10 @@ class PopUpfriend extends React.Component{
 	 
 	handleSubmit(event) {
 		event.preventDefault();
-		alert(JSON.stringify(this.state.formValues));
+		const user = firebase.auth().currentUser;
+		const uid= firebase.auth().currentUser.uid;
+		firebase.firestore().collection("users").doc(uid).update({friends: firebase.firestore.FieldValue.arrayUnion(this.state.friendemail)});
+
 	}
 
     render(){
