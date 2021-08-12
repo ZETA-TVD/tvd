@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 export const GroupCard =({name}) =>{
     return(
+      <div>
+      {name?
         <div className="card">
         <Link className="grpbutton" style={{ textDecoration: 'none' }} to="/group"> 
           <article className="mw5 center  b5 bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
@@ -13,6 +15,7 @@ export const GroupCard =({name}) =>{
                           </div>
             </article>
           </Link>
+        </div>:null}
         </div>
         );
 }  

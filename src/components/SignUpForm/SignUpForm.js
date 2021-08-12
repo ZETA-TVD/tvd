@@ -360,7 +360,7 @@ class SignInForm extends React.Component {
 			this.setState({
 				uid: data.user.uid
 			})
-			firebase.firestore().collection("users").add({
+			firebase.firestore().collection("users").doc(this.state.uid).set({
 
 				name: this.state.name,
 				email: this.state.email,
