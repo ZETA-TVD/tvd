@@ -27,9 +27,10 @@ const GroupPage =() =>{
                     <div class="heading">
                         <h2> {name} </h2>
                     </div>
-                    <GroupExpense title="Charminaar" host="Kuli" hostamt="1000" splitamt="100"/>
-                    <GroupExpense title="ITC" host="Sasti"  hostamt="10070"  splitamt="1600"/>
-                    <GroupExpense title="FK" host="anty" hostamt="10080" splitamt="1700"/>
+                    <GroupExpense title="Cake" host="Abhinav" hostamt="1500" splitamt="300"/>
+                    <GroupExpense title="Drinks" host="Amal"  hostamt="1000"  splitamt="200"/>
+                    <GroupExpense title="Gaming" host="Tim" hostamt="800" splitamt="160"/>
+                    <GroupExpense title="Food" host="Tim" hostamt="1000" splitamt="200"/>
                     <div className="AddPopUp">
                         <div>
                             <PopUpexpense/>
@@ -41,9 +42,11 @@ const GroupPage =() =>{
                 <div class="heading">
                     <h2>Report</h2>
                 </div>
-                <FriendReport person="Kul" personamt="100"/>
-                <FriendReport person="Sasti" personamt="1020"/>
-                <FriendReport person="Member" personamt="200"/>
+                <FriendReport person="Amal" personamt="140"/>
+                <FriendReport person="Abhinav" personamt="640"/>
+                <FriendReport person="John" personamt="-860"/>
+                <FriendReport person="Hari" personamt="-860"/>
+                <FriendReport person="Tim" personamt="940"/>
     
             </div>
         </div>

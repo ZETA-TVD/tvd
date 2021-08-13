@@ -62,11 +62,11 @@ export class Splitpage extends React.Component{
                     </div>
                     <div className="mainfriends">
                         <div>
-                        <FriendCard name="Sasti Randi" amt="Rs.10" pic=""/>
-                        <FriendCard name="Daddy Kul" amt="Rs.1000" pic=""/>
-                        <FriendCard name="Member Anto" amt="Rs.101" pic=""/>
-                        <FriendCard name="Gobi Manchurian" amt="Rs.19" pic=""/>
-                        <FriendCard name="Sunapila" amt="Rs.27" pic=""/>
+                        <FriendCard name="Adhvaith" amt="Rs.10" pic=""/>
+                        <FriendCard name="Antony" amt="Rs.1000" pic=""/>
+                        <FriendCard name="Govind" amt="Rs.100" pic=""/>
+                        <FriendCard name="Rishab" amt="Rs.50" pic=""/>
+                        <FriendCard name="Sunand" amt="Rs.200" pic=""/>
                         </div>
                         <div className="AddPopUp">
                             <div>

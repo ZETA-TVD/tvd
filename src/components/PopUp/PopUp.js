@@ -67,7 +67,7 @@ class PopUp extends React.Component{
 							<div className="formcontent" key={index}>
 								{ index ?
 								<div className="friendname">
-									<input type="email" name="friendname"  placeholder="Enter your Friend's Name" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
+									<input type="email" name="friendname"  placeholder="Enter your Friend's Email" value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
 									<button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>X</button> 
 								</div>
 								:
@@ -76,7 +76,7 @@ class PopUp extends React.Component{
 										<input type="text" name="groupname" className= "grp" placeholder=" Group Name" value={element.groupname || ""} onChange={e => this.handleChange(index, e)} />	
 									</div>
 									<div className="friendname">	
-										<input type="text" name="friendname" placeholder="Enter your Friend's Name"  value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
+										<input type="text" name="friendname" placeholder="Enter your Friend's Email"  value={element.friendname || ""} onChange={e => this.handleChange(index, e)} />
 									</div>
 								</div>
 								}
