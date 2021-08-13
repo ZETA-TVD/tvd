@@ -15,7 +15,8 @@ export class Splitpage extends React.Component{
     constructor(props) {
 		super(props);
 		this.state = {
-		 groups:[]
+		 groups:[],
+         friends:[]
 		};		
 
 	  }
@@ -23,6 +24,8 @@ export class Splitpage extends React.Component{
       {
           const uid= firebase.auth().currentUser.uid
           firebase.firestore().collection("users").doc(uid).get().then(doc=>{this.setState({groups:doc.data().groups})})
+          firebase.firestore().collection("users").doc(uid).get().then(doc=>{this.setState({friends:doc.data().friends})})
+            console.log(this.state.friends)
       }
        
 
@@ -62,11 +65,14 @@ export class Splitpage extends React.Component{
                     </div>
                     <div className="mainfriends">
                         <div>
+
                         <FriendCard name="Adhvaith" amt="Rs.10" pic=""/>
                         <FriendCard name="Antony" amt="Rs.1000" pic=""/>
                         <FriendCard name="Govind" amt="Rs.100" pic=""/>
                         <FriendCard name="Rishab" amt="Rs.50" pic=""/>
                         <FriendCard name="Sunand" amt="Rs.200" pic=""/>
+
+                        
                         </div>
                         <div className="AddPopUp">
                             <div>

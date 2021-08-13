@@ -12,12 +12,12 @@ class PopUpfriend extends React.Component{
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 	 
-	handleSubmit(event) {
+	handleSubmit(event,close) {
 		event.preventDefault();
 		const user = firebase.auth().currentUser;
 		const uid= firebase.auth().currentUser.uid;
 		firebase.firestore().collection("users").doc(uid).update({friends: firebase.firestore.FieldValue.arrayUnion(this.state.friendemail)});
-
+		close();
 	}
 
     render(){
@@ -45,7 +45,7 @@ class PopUpfriend extends React.Component{
 						
 						<div className="button-section">
 
-								<button className="button submit" type="submit">Submit</button>
+								<button className="button submit" type="submit" onClick={(e) => this.handleSubmit(e,close)}>Submit</button>
 						</div>
 				</form>
                 </div>
