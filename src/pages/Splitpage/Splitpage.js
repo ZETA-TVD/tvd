@@ -11,6 +11,7 @@ import PopUpfriend from "../../components/PopUpfriend/PopUpfriend";
 import firebase  from '../../config/fire';
 
 export class Splitpage extends React.Component{
+    
     constructor(props) {
 		super(props);
 		this.state = {
@@ -26,7 +27,7 @@ export class Splitpage extends React.Component{
           firebase.firestore().collection("users").doc(uid).get().then(doc=>{this.setState({friends:doc.data().friends})})
             console.log(this.state.friends)
       }
-      
+       
 
     render() {
         console.log(this.state)
